@@ -3,10 +3,12 @@ import turtle
 
 win = turtle.Screen()
 win.title("Circle Spiral")
+win.bgcolor("lightgreen")
 
 
 turtle.speed("fastest")
-turtle.pensize(5)
+turtle.pensize(2)
+turtle.pencolor("red")
 
 
 
@@ -16,4 +18,4 @@ for k in range(100):
   
   
   
- turtle.mainloop()
+turtle.mainloop()
