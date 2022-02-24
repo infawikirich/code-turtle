@@ -24,7 +24,7 @@ def draw_line(x1, y1, x2, y2):
 
 
 def dist(p1, p2):
-    return ((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)**2
+    return ((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)**0.5
 
 def shoreline(x1, y1, x2, y2, ratio):
     L = dist((x1, y1), (x2, y2))
@@ -39,7 +39,7 @@ def shoreline(x1, y1, x2, y2, ratio):
     rx = L/2 + (2 * rs - 1)/2*L   # width of ellipse
     ry = ((L*rs)**2 - (L/2)**2)**0.5   # height of ellipse
     theta = math.atan2(y2 - y1, x2 - x1)   # the tilt angle of ellipse
-    alpha = random.uniform(math.pi*0.3,math.pi*0.7)   # flucuate around math.pi/2
+    alpha = random.uniform(math.pi*0.3, math.pi*0.7)   # flucuate around math.pi/2
     x3 = rx*math.cos(alpha)*math.cos(theta) - ry*math.sin(alpha)*math.sin(theta) + midx # parmetric equation for ellipse
     y3 = rx*math.cos(alpha)*math.sin(theta) - ry*math.sin(alpha)*math.cos(theta) + midy
     shoreline(x1, y1, x3, y3, ratio)   # do this recursively on each segment
@@ -50,6 +50,7 @@ turtle.begin_fill()
 shoreline(-300, 0, 300, 0, 0.55)   # call recursion
 shoreline(300, 0, -300, 0, 0.55)   # call recursion
 turtle.end_fill()
+turtle.update()
 
 
 turtle.mainloop()
